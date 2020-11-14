@@ -9,6 +9,7 @@ class ResourcesController < ApplicationController
 
     def create
         @resource = @category.resources.new(resource_params)
+        # binding.pry
         # @resource = Resource.new(resource_params)
         if @resource.save
             render json: @resource  
