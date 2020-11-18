@@ -5,14 +5,14 @@ class CategoriesController < ApplicationController
         render json: @categories
     end
 
-    def create
-        @category = Category.new(category_params)
-        if @category.save
-            render json: @category  
-        else
-            render json: {error: 'Invalid Category'}
-    end
-end
+#     def create
+#         @category = Category.new(category_params)
+#         if @category.save
+#             render json: @category  
+#         else
+#             render json: {error: 'Invalid Category'}
+#     end
+# end
 
     def show
         @category = Category.find(params[:id])
@@ -20,9 +20,10 @@ end
     end
 
     def destroy
+        # binding.pry
         @category = Category.find(params[:id])
         @category.destroy
-        # render json: @category
+        render json: @category
     end
 
     private

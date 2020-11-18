@@ -8,6 +8,7 @@ class ResourcesController < ApplicationController
     end
 
     def create
+        # binding.pry
         @resource = @category.resources.new(resource_params)
         # binding.pry
         # @resource = Resource.new(resource_params)
@@ -25,9 +26,10 @@ class ResourcesController < ApplicationController
     end
 
     def destroy
+        
         @resource = Resource.find(params[:id])
         @resource.destroy
-        # render json: @resource
+        render json: @resource
     end
 
     private
