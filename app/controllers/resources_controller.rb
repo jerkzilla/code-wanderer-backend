@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
     before_action :set_category
 
     def index
-        @resources = Resource.all 
+        @resources = @category.resources 
         render json: @resources 
     end
 
@@ -20,8 +20,8 @@ class ResourcesController < ApplicationController
     end
 
     def show
-        @resource = Resource.find(params[:id])
-        # @resource = @category.resources.find_by(id: params[:id])
+        # @resource = Resource.find(params[:id])
+        @resource = @category.resources.find_by(id: params[:id])
         render json: @resource
     end
 
